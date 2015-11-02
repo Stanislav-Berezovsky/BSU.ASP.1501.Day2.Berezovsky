@@ -22,6 +22,17 @@ namespace Task2
         }
 
 
+        public override string ToString()
+        {
+            return this.ToString("NCR", CultureInfo.CurrentCulture);
+        }
+
+        public string ToString(string format)
+        {
+            return this.ToString(format, CultureInfo.CurrentCulture);
+        }
+
+
         public string ToString(string format, IFormatProvider formatProvider)
         {
             if (string.IsNullOrEmpty(format))
@@ -31,9 +42,6 @@ namespace Task2
             string outPutString ="";
             switch (format)
             {
-                case "G":
-
-                    break;
                 case "NCR":
                     outPutString = string.Format("{0} {1} {2}",Name.ToString(formatProvider),ContactPhone.ToString(formatProvider),Revenue.ToString(formatProvider));
                     break;
